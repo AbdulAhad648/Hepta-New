@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hepta Travel</title>
+<style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+    font-family: 'Georgia', serif;
+}
+.hero {
+    background: url('I/f1.jpg') no-repeat center center/cover;
+    height: 80vh;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.hero-content {
+    z-index: 2;
+}
+.hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+.hero p {
+    margin: 20px 0;
+    font-size: 1.3rem;
+}
+.hero button {
+    padding: 10px 30px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 3;
+}
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.hamburger {
+    cursor: pointer;
+    display: block;
+}
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+}
+.nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+}
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    margin: 15px 0;
+    font-size: 1.5rem;
+}
+.nav-links.active {
+    transform: translateX(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+}
+
+/* Contact */
+.contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 60px;
+      padding: 60px 20px;
+      background-color: #fff;
+    }
+
+    .form-container,
+    .contact-info {
+      flex: 1 1 400px;
+      max-width: 500px;
+    }
+
+    .form-container {
+      background: #f7f7f7;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #4a7c94;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    .form-group button {
+      padding: 12px 24px;
+      background-color: white;
+      color: #00b8b8;
+      border: 2px solid #00b8b8;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 6px;
+    }
+
+    .form-group button:hover {
+      background-color: #00b8b8;
+      color: #fff;
+    }
+
+    .contact-info {
+      font-family: Georgia, serif;
+    }
+
+    .contact-info h2 {
+      font-weight: bold;
+      font-size: 22px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .contact-info div {
+      margin-bottom: 30px;
+    }
+
+    .contact-info span.label {
+      display: block;
+      font-size: 12px;
+      color: #69b9b9;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .contact-info a {
+      color: black;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .form-container,
+      .contact-info {
+        max-width: 100%;
+      }
+      .contact-section {
+        padding: 40px 20px;
+      }
+    }
+
+    /* Testimonials Section */
+  .testimonials {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fafafa;
+  }
+  
+  .testimonials h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  .testimonial-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .testimonial {
+    max-width: 300px;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .testimonial img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+    color: #333;
+  }
+
+  .footer {
+    background-color: #111;
+    color: #ccc;
+    padding: 40px 20px;
+    font-size: 14px;
+    font-family: sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .footer-column {
+    flex: 1 1 200px;
+    margin: 10px;
+  }
+  
+  .footer-column h4 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #fff;
+  }
+  
+  .subscribe-form {
+    display: flex;
+    border-bottom: 1px solid #555;
+  }
+  
+  .subscribe-form input {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    padding: 8px;
+    outline: none;
+    flex: 1;
+  }
+  
+  .subscribe-form button {
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    padding: 8px;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #333;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+  }
+  
+  .social-icons a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #ccc;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #fff;
+  }
+  
+
+</style>
+</head>
+<body>
+<div class="hero" id="gallery">
+    <div class="overlay"></div>
+    <div class="navbar">
+        <div class="logo">Hepta</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="nav-links" id="navLinks">
+        <span class="close-btn" onclick="toggleMenu()">&#10005;</span>
+
+        <a href="index.html">Home</a>
+        <a href="hotels.html">Hotels</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="hero-content">
+        <h1>Contact</h1>
+        <p>A free template by <span style="color: #ccc;">Colorlib</span>. Download and share!</p>
+    </div>
+</div>
+
+<!-- Form-->
+<!-- Contact Section -->
+<section class="contact-section">
+    <form class="form-container" action="#" method="POST" novalidate>
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required minlength="2" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone *</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9+() -]{7,}" placeholder="e.g. +1 435 3533">
+      </div>
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required placeholder="example@email.com">
+      </div>
+      <div class="form-group">
+        <label for="message">Write Message *</label>
+        <textarea id="message" name="message" required minlength="10" placeholder="Your message here..."></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+
+    <div class="contact-info">
+      <div>
+        <h2>98 West 21th Street, Suite<br>721 New York NY 10016</h2>
+      </div>
+      <div>
+        <span class="label">PHONE:</span>
+        <a href="tel:+14353533">(+1) 435 3533</a>
+      </div>
+      <div>
+        <span class="label">EMAIL:</span>
+        <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+      </div>
+    </div>
+    </section>
+  
+<!-- Happy Customers Section -->
+<section class="testimonials">
+    <h2>Happy Customers</h2>
+    <div class="testimonial-list">
+      <div class="testimonial">
+        <img src="I/p01.jpg" alt="User 1">
+        <p>
+          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+          there live the blind texts. Separated they live in Bookmarksgrove right at the coast of
+          the Semantics, a large language ocean.
+        </p>
+        <span>— Clare Cupcake</span>
+      </div>
+      <div class="testimonial">
+        <img src="I/p01.jpg" alt="User 2">
+        <p>
+          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+          there live the blind texts. Separated they live in Bookmarksgrove right at the coast of
+          the Semantics, a large language ocean.
+        </p>
+        <span>— Jorge Seller</span>
+      </div>
+      <div class="testimonial">
+        <img src="I/p01.jpg" alt="User 3">
+        <p>
+          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+          there live the blind texts. Separated they live in Bookmarksgrove right at the coast of
+          the Semantics, a large language ocean.
+        </p>
+        <span>— John Doe</span>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Quick Link</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Rooms</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Our Location</a></li>
+          <li><a href="#">The Hosts</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Restaurant</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact Info</h4>
+        <p><strong>Address</strong><br>98 West 21th Street, Suite 721<br>New York NY 10016</p>
+        <p><strong>Phone:</strong> (+1) 435 3533</p>
+        <p><strong>Email:</strong> info@yourdomain.com</p>
+      </div>
+      <div class="footer-column">
+        <h4>Subscribe</h4>
+        <p>Sign up for our newsletter</p>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Your email..." />
+          <button type="submit">✉️</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025 All rights reserved | This template is made with ❤ by Colorlib</p>
+      <div class="social-icons">
+        <a href="#">🔵</a>
+        <a href="#">🐦</a>
+        <a href="#">📸</a>
+        <a href="#">💼</a>
+        <a href="#">📌</a>
+      </div>
+    </div>
+  </footer>
+
+
+<script>
+/* Menu */
+function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    nav.classList.toggle('active');
+}
+
+const form = document.getElementById('contactForm');
+  const nameField = document.getElementById('name');
+  const phoneField = document.getElementById('phone');
+  const emailField = document.getElementById('email');
+  const messageField = document.getElementById('message');
+
+  const nameError = document.getElementById('nameError');
+  const phoneError = document.getElementById('phoneError');
+  const emailError = document.getElementById('emailError');
+  const messageError = document.getElementById('messageError');
+  const successMessage = document.getElementById('successMessage');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let valid = true;
+    successMessage.textContent = '';
+
+    if (nameField.value.trim().length < 2) {
+      nameError.style.display = 'block';
+      valid = false;
+    } else {
+      nameError.style.display = 'none';
+    }
+
+    const phonePattern = /^[0-9+() -]{7,}$/;
+    if (!phonePattern.test(phoneField.value.trim())) {
+      phoneError.style.display = 'block';
+      valid = false;
+    } else {
+      phoneError.style.display = 'none';
+    }
+
+    if (!emailField.validity.valid) {
+      emailError.style.display = 'block';
+      valid = false;
+    } else {
+      emailError.style.display = 'none';
+    }
+
+    if (messageField.value.trim().length < 10) {
+      messageError.style.display = 'block';
+      valid = false;
+    } else {
+      messageError.style.display = 'none';
+    }
+
+    if (valid) {
+      // Simulate sending the message
+      successMessage.textContent = 'Your message has been sent successfully!';
+      form.reset();
+    }
+  });
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
