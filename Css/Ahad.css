@@ -265,67 +265,82 @@ body {
   }
 }
 
+/* Experience */
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background: #fefefe;
-    color: #333;
-  }
-  
-  .experience-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .main-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  
-  .intro-text {
-    max-width: 700px;
-    margin: 0 auto 50px;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-  }
-  
-  .feature-card {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-  }
-  
-  .feature-card:hover {
-    transform: translateY(-10px);
-  }
-  
-  .feature-card img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
-  }
-  
-  .feature-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #000;
-  }
-  
-  .feature-card p {
-    font-size: 0.95rem;
-    color: #555;
-  }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #fefefe;
+  color: #333;
+}
+
+.experience-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.features-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 40px;
+justify-items: center;
+}
+
+@media (max-width: 768px) {
+.features-grid {
+  grid-template-columns: repeat(1, 1fr);
+}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+.features-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
   
   
   /* Carasoul */
